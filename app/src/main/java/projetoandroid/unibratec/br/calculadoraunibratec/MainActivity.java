@@ -20,7 +20,11 @@ public class MainActivity extends Activity
     int operadorAtual=0;
 
 
-    DecimalFormat format = new DecimalFormat("0.#");
+    DecimalFormat format;
+
+    public MainActivity() {
+        format = new DecimalFormat("0.#");
+    }
 
     @Override public void onCreate(Bundle savedInstanceState)
     {
@@ -54,8 +58,9 @@ public class MainActivity extends Activity
 
     }
     void setStringAtual(String s){
+
         stringAtual = s;
-        textView.setText(s);
+        textView.setText(s.replace(",","."));
     }
 
     class NumberButtonClickListener implements OnClickListener{
@@ -113,7 +118,7 @@ public class MainActivity extends Activity
         if(id == R.id.botaoSomar){
 
             operadorAtual = id;
-            textOperador.setText(stringAtual+"+");
+            textOperador.setText(stringAtual.replace(",",".")+"+");
             stringAnterior = stringAtual;
             stringVeja = true;
         }
@@ -150,32 +155,34 @@ public class MainActivity extends Activity
             double curr=Double.parseDouble(stringAtual);
             double result=0;
 
+
+
             if(stringAnterior != null){
 
-                double prev = Double.parseDouble(stringAnterior);
+                double prev = Double.parseDouble(stringAnterior.replace(",","."));
 
                 switch(operadorAtual)
                 {	case R.id.botaoSomar: result = prev + curr;
                         textOperador.setText("");
-                        textOperador.setText(stringAnterior+" + "+stringAtual+" =");
+                        textOperador.setText(stringAnterior.replace(",",".")+" + "+stringAtual+" =");
                     break;
                     case R.id.botaoSubtrair: result = prev - curr;
                         textOperador.setText("");
-                        textOperador.setText(stringAnterior+" - "+stringAtual+" =");
+                        textOperador.setText(stringAnterior.replace(",",".")+" - "+stringAtual+" =");
                     break;
                     case R.id.botaoMultiplicar: result = prev * curr;
                         textOperador.setText("");
-                        textOperador.setText(stringAnterior+" * "+stringAtual+" =");
+                        textOperador.setText(stringAnterior.replace(",",".")+" * "+stringAtual+" =");
                     break;
                     case R.id.botaoDividir: result = prev/curr;
                         textOperador.setText("");
-                        textOperador.setText(stringAnterior+" / "+stringAtual+" =");
+                        textOperador.setText(stringAnterior.replace(",",".")+" / "+stringAtual+" =");
                     break;
                     case R.id.botaoPorcento: result = (prev / 100 )* curr;
                         textOperador.setText("");
-                        textOperador.setText(stringAnterior+" % "+stringAtual+" =");
+                        textOperador.setText(stringAnterior.replace(",",".")+" % "+stringAtual+" =");
                     break;
-                  
+
                 }
             }
             setStringAtual(format.format(result));
