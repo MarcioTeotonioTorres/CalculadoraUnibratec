@@ -82,7 +82,7 @@ public class MainActivity extends Activity
     {	int id=v.getId();
 
 
-        if(id == R.id.botaoMaisOuMenos) { //aqui neste caso é preciso a ação do botao igual para inverter
+        if(id == R.id.botaoMaisOuMenos) {
           double prev = Double.parseDouble(stringAtual);
 
            prev = prev *(-1);
