@@ -175,17 +175,7 @@ public class MainActivity extends Activity
                         textOperador.setText("");
                         textOperador.setText(stringAnterior+" % "+stringAtual+" =");
                     break;
-                   // case R.id.botaoMaisOuMenos://clique necessário para inversão de sinal
-                     //   if(prev > 0) {
-                       //     result = prev * (-1);
-                         //   break;
-                        //}
-                          //  else {
-                            //result = prev * 1;
-                            //break;
-                        //}
-
-
+                  
                 }
             }
             setStringAtual(format.format(result));
