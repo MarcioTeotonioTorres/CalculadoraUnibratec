@@ -185,7 +185,7 @@ public class MainActivity extends Activity
 
                 }
             }
-            setStringAtual(format.format(result));
+            setStringAtual(format.format(result).replace(",","."));
         }
     }
     }
